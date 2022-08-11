@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/angular-ssr-fastify",
+            "outputPath": "dist/Angular-SSR-Fastify/browser",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -99,6 +99,14 @@
               "src/styles.scss"
             ],
             "scripts": []
+          }
+        },
+        "server": {
+          "builder": "@angular-devkit/build-angular:server",
+          "options": {
+            "outputPath": "dist/Angular-SSR-Fastify/server",
+            "main": "src/server.ts",
+            "tsConfig": "tsconfig.server.json"
           }
         }
       }
