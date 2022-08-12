@@ -106,7 +106,8 @@
           "options": {
             "outputPath": "dist/Angular-SSR-Fastify/server",
             "main": "src/server.ts",
-            "tsConfig": "tsconfig.server.json"
+            "tsConfig": "tsconfig.server.json",
+            "externalDependencies": ["jsdom", "canvas"]
           }
         }
       }
