@@ -1,7 +1,6 @@
 import { Engine } from '@nguniversal/common/clover/server';
 import * as express from 'express';
 import { join } from 'path';
-import { format } from 'url';
 
 const PORT = 4200;
 const HOST = `localhost:${PORT}`;
@@ -21,15 +20,14 @@ app.get('*.*', express.static(DIST, {
 // });
 
 const ssrEngine = new Engine();
+
 app.get('*', (req, res, next) => {
+  const baseURL =  req.protocol + '://' + req.headers.host + '/';
+  const url = new URL(req.url, baseURL);
+
   ssrEngine.render({
     publicPath: DIST,
-    url: format({
-      protocol: req.protocol,
-      host: HOST,
-      pathname: req.path,
-      query: req.query as Record<string, any>,
-    }),
+    url: url.href,
     headers: req.headers,
   })
     .then(html => res.send(html))
