@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "Angular-SSR-Fastify": {
+    "Angular-SSR-Fastify-Clover": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/Angular-SSR-Fastify/browser",
+            "outputPath": "dist/Angular-SSR-Fastify-Clover/browser",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -69,10 +69,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "Angular-SSR-Fastify:build:production"
+              "browserTarget": "Angular-SSR-Fastify-Clover:build:production"
             },
             "development": {
-              "browserTarget": "Angular-SSR-Fastify:build:development"
+              "browserTarget": "Angular-SSR-Fastify-Clover:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -80,7 +80,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "Angular-SSR-Fastify:build"
+            "browserTarget": "Angular-SSR-Fastify-Clover:build"
           }
         },
         "test": {
@@ -104,7 +104,7 @@
         "server": {
           "builder": "@angular-devkit/build-angular:server",
           "options": {
-            "outputPath": "dist/Angular-SSR-Fastify/server",
+            "outputPath": "dist/Angular-SSR-Fastify-Clover/server",
             "main": "src/server.ts",
             "tsConfig": "tsconfig.server.json",
             "externalDependencies": ["jsdom", "canvas"]
@@ -112,5 +112,8 @@
         }
       }
     }
+  },
+  "cli": {
+    "analytics": false
   }
 }
