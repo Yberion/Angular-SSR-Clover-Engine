@@ -24,7 +24,10 @@ server.get('/', (req, res) => {
     url: url.href,
     headers: req.headers,
   })
-    .then(html => res.send(html))
+    .then(html => {
+      res.type('text/html');
+      res.send(html);
+    })
     .catch(err => console.error(err));
 });
 
