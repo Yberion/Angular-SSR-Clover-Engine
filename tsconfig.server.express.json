@@ -1,0 +1,13 @@
+{
+  "extends": "./tsconfig.app.json",
+  "compilerOptions": {
+    "outDir": "./out-tsc/server/express",
+    "target": "es2020",
+    "types": [
+      "node"
+    ]
+  },
+  "files": [
+    "server/express/server.ts"
+  ]
+}

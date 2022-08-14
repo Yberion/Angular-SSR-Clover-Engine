@@ -1,0 +1,13 @@
+{
+  "extends": "./tsconfig.app.json",
+  "compilerOptions": {
+    "outDir": "./out-tsc/server/fastify",
+    "target": "es2020",
+    "types": [
+      "node"
+    ]
+  },
+  "files": [
+    "server/fastify/server.ts"
+  ]
+}

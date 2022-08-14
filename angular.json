@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "Angular-SSR-Fastify-Clover": {
+    "Angular-SSR-Clover-Engine": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/Angular-SSR-Fastify-Clover/browser",
+            "outputPath": "dist/Angular-SSR-Clover-Engine/browser",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -69,10 +69,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "Angular-SSR-Fastify-Clover:build:production"
+              "browserTarget": "Angular-SSR-Clover-Engine:build:production"
             },
             "development": {
-              "browserTarget": "Angular-SSR-Fastify-Clover:build:development"
+              "browserTarget": "Angular-SSR-Clover-Engine:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -80,7 +80,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "Angular-SSR-Fastify-Clover:build"
+            "browserTarget": "Angular-SSR-Clover-Engine:build"
           }
         },
         "test": {
@@ -104,10 +104,22 @@
         "server": {
           "builder": "@angular-devkit/build-angular:server",
           "options": {
-            "outputPath": "dist/Angular-SSR-Fastify-Clover/server",
-            "main": "src/server.ts",
-            "tsConfig": "tsconfig.server.json",
+            "outputHashing": "media",
+            "optimization": true,
+            "sourceMap": false,
             "externalDependencies": ["jsdom", "canvas"]
+          },
+          "configurations": {
+            "express": {
+              "main": "server/express/server.ts",
+              "outputPath": "dist/Angular-SSR-Clover-Engine/server/express",
+              "tsConfig": "tsconfig.server.express.json"
+            },
+            "fastify": {
+              "main": "server/fastify/server.ts",
+              "outputPath": "dist/Angular-SSR-Clover-Engine/server/fastify",
+              "tsConfig": "tsconfig.server.fastify.json"
+            }
           }
         }
       }
