@@ -10,12 +10,14 @@ const server = fastify();
 
 server.register(fastifyStatic, {
   root: DIST,
-  maxAge: '1y'
+  maxAge: '1y',
+  // Need to be false, else we won't be able to create a wildcard route
+  wildcard: false
 });
 
 const ssrEngine = new Engine();
 
-server.get('/', (req, res) => {
+server.get('*', (req, res) => {
   const baseURL =  req.protocol + '://' + req.headers.host;
   const url = new URL(req.url, baseURL);
 
@@ -31,7 +33,7 @@ server.get('/', (req, res) => {
     .catch(err => console.error(err));
 });
 
-server.listen({ port: PORT }, (err, address) => {
+server.listen({ port: PORT }, (err, _address) => {
   console.log(`Node Express server listening on http://localhost:${PORT}`);
-  //if (err) throw err
+  if (err) throw err
 });
