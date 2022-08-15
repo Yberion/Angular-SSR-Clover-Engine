@@ -14,7 +14,7 @@ import { HomeComponent } from './home/home.component';
     HomeComponent
   ],
   imports: [
-    BrowserModule.withServerTransition({ appId: 'appId' }),
+    BrowserModule.withServerTransition({ appId: 'ssr-clover-engine' }),
     AppRoutingModule,
     RendererModule.forRoot(),
     TransferHttpCacheModule

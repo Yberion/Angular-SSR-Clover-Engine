@@ -27,8 +27,7 @@ server.get('*', (req, res) => {
     headers: req.headers,
   })
     .then(html => {
-      res.type('text/html');
-      res.send(html);
+      res.type('text/html').send(html);
     })
     .catch(err => console.error(err));
 });
