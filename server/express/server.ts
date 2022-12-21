@@ -10,8 +10,7 @@ const server = express();
 server.set('views', DIST);
 
 server.get('*.*', express.static(DIST, {
-  maxAge: '1y',
-  fallthrough: false
+  maxAge: '1y'
 }));
 
 const ssrEngine = new Engine();
